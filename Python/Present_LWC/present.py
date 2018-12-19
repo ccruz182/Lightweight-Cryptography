@@ -1,3 +1,10 @@
+'''
+  File name: present.py
+  Author: Cesar Cruz
+  Project: Present_LWC
+  Python Version: 2.7
+'''
+
 from keys import generate_round_keys
 from cipher import cipher
 

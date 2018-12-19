@@ -1,3 +1,10 @@
+'''
+  File name: keys.py
+  Author: Cesar Cruz
+  Project: Present_LWC
+  Python Version: 2.7
+'''
+
 import numpy
 
 from boxes import SBOX
