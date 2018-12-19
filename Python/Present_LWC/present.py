@@ -8,9 +8,13 @@ key = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
+# First of all, generate all the keys, based on the user key
 keys = generate_round_keys(key)
-# print keys[2]
+
+# Cipher the plaint text with the keys generated in the last step
 ciphertext = cipher(plaintext, keys)
+
+# Just for a better printing
 ciphertext = "".join(map(str, ciphertext))
 
 for i in range(len(ciphertext) / 4):

@@ -2,6 +2,7 @@ import numpy
 
 from boxes import SBOX
 
+# Method that generates the 32 keys of 80 bits that are used in the algorithm
 def generate_round_keys(key):
 	keys = []	
 
@@ -12,7 +13,7 @@ def generate_round_keys(key):
 	return keys
 
 
-# Function that updates the key, in each iteration of generate_round_keys method
+# Method that updates the key, in each iteration of generate_round_keys method
 def update_key(current_key, round_counter):
 	# First step. Left rotation of the current key in 61 bits.
 	new_key = numpy.roll(current_key, -61)		
