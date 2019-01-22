@@ -7,23 +7,30 @@
 
 from keys import generate_round_keys
 from cipher import cipher
+from decipher import decipher
 
 
-key = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+key = [0] * 80
 
-plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+plaintext = [0] * 64
+
+# key = [1] * 80
+
+# plaintext = [1] * 64
 
 # First of all, generate all the keys, based on the user key
 keys = generate_round_keys(key)
 
-# Cipher the plaint text with the keys generated in the last step
+""" 
+	** Cipher ** 
+"""
 ciphertext = cipher(plaintext, keys)
 
-# Just for a better printing
-ciphertext = "".join(map(str, ciphertext))
+print "Cipher", ciphertext
 
-for i in range(len(ciphertext) / 4):
-	a = 4 * i
-	print ciphertext[a:a+4]
+
+""" 
+	** Decipher ** 
+"""
+recovered_text = decipher(ciphertext, keys)
+print "Recover", recovered_text
