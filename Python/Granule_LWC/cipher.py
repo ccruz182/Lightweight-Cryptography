@@ -7,7 +7,7 @@
 
 import numpy
 
-from boxes import SBOX, PBOX, PBOX_INV
+from boxes import SBOX, PBOX, ROUNDS
 
 # Cipher method.
 def cipher(plaintext, keys):
@@ -16,12 +16,16 @@ def cipher(plaintext, keys):
 	pt0 = plaintext[32:]
 
 	# 32 rounds of the algorithm
-	for i in range(32):
+	for i in range(ROUNDS):
+		print i
 		# Execution of f function
 		f_return  = f_function(pt1)
 
-		# Add round key operation		
+		# Add round key operation
+		print "pt0", pt0
+		print "key", keys[i]	
 		temp = add_round_key(pt0, f_return, keys[i])	
+		print "temp", temp
 		
 		"""
 		print i
@@ -45,12 +49,12 @@ def decipher(ciphertext, keys):
 	pt1 = ciphertext[32:]
 
 	# 32 rounds of the algorithm
-	for i in range(32):
+	for i in range(ROUNDS):
 		# Execution of f funcion
 		f_return  = f_function(pt1)	
 
 		# Add round key operation	
-		temp = add_round_key(pt0, f_return, keys[31 - i])
+		temp = add_round_key(pt0, f_return, keys[ROUNDS - 1 - i])
 
 		"""
 		print 31 - i		
@@ -90,6 +94,7 @@ def p_layer(state):
 		state_offset =  i * 4
 		new_state[offset:offset + 4] = state[state_offset:state_offset + 4]
 
+	print "OUTPUT P:", new_state
 	return new_state
 
 
@@ -106,6 +111,7 @@ def sbox_layer(state):
 		# SBOX operation
 		state[beg:beg+4] = int_to_bin(SBOX[sbox_index], 4)
 
+	print "OUTPUT S", state
 	return state
 
 def rp_layer(state):
@@ -115,6 +121,8 @@ def rp_layer(state):
 	
 	# X-OR between the last operations
 	y = temp0 ^ temp1
+
+	print "y", y
 	
 	return y.tolist()
 

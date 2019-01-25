@@ -9,14 +9,9 @@ from keys import generate_round_keys
 from cipher import cipher, decipher
 
 
-plaintext = [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1]
+plaintext = [0] * 64
+key = [0] * 128
 
-key = []
-for i in range(128):
-	key.append(0)
-
-key[127] = 1
 # First of all, generate all the keys, based on the user key.
 keys = generate_round_keys(key)
 

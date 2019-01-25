@@ -1,12 +1,13 @@
 import numpy
 
-from boxes import SBOX
+from boxes import SBOX, ROUNDS
+
 
 # Method that generates the 32 keys of 128 bits that are used in the algorithm
 def generate_round_keys(key):
 	keys = []	
 
-	for i in range(0, 32):			
+	for i in range(ROUNDS):			
 		c, key = update_key(key, i)		
 		keys.append(c)		
 
