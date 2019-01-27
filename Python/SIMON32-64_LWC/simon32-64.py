@@ -19,6 +19,9 @@ plaintext = [0,1,1,0, 0,1,0,1, 0,1,1,0, 0,1,0,1,
 
 keys = key_expansion(key)
 
+for k in keys:
+	print k
+
 ciphertext = cipher(plaintext, keys)
 
 print "ciphertext", ciphertext
