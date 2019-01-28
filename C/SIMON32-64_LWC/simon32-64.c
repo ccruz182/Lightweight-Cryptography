@@ -133,6 +133,7 @@ int* and(int* arr1, int* arr2, int size) {
 
   return tmp;
 }
+
 int* left_shift(int* array, int times) {
   int i = 0, j = 0;
   int* tmp = malloc(sizeof(int) * N);
