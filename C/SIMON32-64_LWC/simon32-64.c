@@ -15,6 +15,7 @@
 
 int** key_expansion(int* key);
 int* cipher(int* plaintext, int** keys);
+int* decipher(int* ciphertext, int** keys);
 int** init_keys(int* key_words);
 
 /* Auxiliar functions */
@@ -39,13 +40,15 @@ int main() {
       0,1,1,0, 1,0,0,0, 0,1,1,1, 0,1,1,1};
 
   int* ciphertext = malloc(sizeof(int) * (2 * N));
+  int* recovertext = malloc(sizeof(int) * (2 * N));
 
   int** keys = key_expansion(key);
+
   ciphertext = cipher(plaintext, keys);
-
   print_array(ciphertext, N * 2);
-  
 
+  recovertext = decipher(ciphertext, keys);
+  print_array(recovertext, N * 2);
 }
 
 int** key_expansion(int* key) {
@@ -95,6 +98,29 @@ int* cipher(int* plaintext, int** keys) {
     tmp2 = xor(tmp2, left_shift(x, 2), N);
     x = xor(tmp2, keys[i], N);
     y = copy_array(tmp, N);    
+  }
+
+  return join_chunks(x, y, N, N);
+}
+
+int* decipher(int* ciphertext, int** keys) {
+  int* x = malloc(sizeof(int) * N);
+  int* y = malloc(sizeof(int) * N);
+  int* tmp = malloc(sizeof(int) * N);
+  int* tmp2 = malloc(sizeof(int) * N);
+  
+  /* X and Y */
+  x = get_chunk(ciphertext, 0, 16);
+  y = get_chunk(ciphertext, 16, 32);
+  
+  for (int i = 0; i < T; i++) {    
+    tmp = copy_array(y, N);
+    tmp2 = left_shift(y, 1);
+    tmp2 = and(tmp2, left_shift(y, 8), N);
+    tmp2 = xor(x, tmp2, N);
+    tmp2 = xor(tmp2, left_shift(y, 2), N);
+    x = copy_array(tmp, N);    
+    y = xor(tmp2, keys[T - 1 - i], N);
   }
 
   return join_chunks(x, y, N, N);
