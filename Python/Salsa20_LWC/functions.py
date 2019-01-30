@@ -26,6 +26,49 @@ def columnround(x):
 
 	return y
 
+def doubleround(x):
+	return rowround(columnround(x))
+
+def salsa20(x):
+	x_little_endian = []
+	q = 0
+	ret = []
+
+	for i in range(16):
+		x_little_endian.append(little_endian(x[q:q + 4]))
+		q += 4
+
+	save_x_little_endian = x_little_endian[:]
+	
+	for i in range(10):
+		x_little_endian = doubleround(x_little_endian)
+
+	for i in range(16):
+		sm = suma(save_x_little_endian[i], x_little_endian[i])
+		sm_big_endian = num_to_big_endian(sm)
+		bytes_sm = num_to_bytes(sm_big_endian)
+		ret.extend(bytes_sm)
+
+	print ret
+
+
+def little_endian(b):
+	return b[0] + pow(2,8) * b[1] + pow(2,16) * b[2] + pow(2,24) * b[3]
+
+def num_to_big_endian(number):
+	list_big_endian = []
+	bin_rep = list(numpy.binary_repr(number, 32))
+	q = 0
+
+	for i in range(0, 31, 8):
+		list_big_endian.insert(0, bin_rep[i:i+8])
+	
+	return "".join(sum(list_big_endian, []))
+
+def num_to_bytes(number_str):
+	return int(number_str[:8], 2), int(number_str[8:16], 2), int(number_str[16:24], 2), int(number_str[24:], 2)
+
+
 def suma(a, b):
 	return (a + b) % pow(2, 32)
 
