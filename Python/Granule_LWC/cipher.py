@@ -7,7 +7,7 @@
 
 import numpy
 
-from boxes import SBOX, PBOX, ROUNDS
+from boxes import SBOX, PBOX, ROUNDS, PBOX_2
 
 # Cipher method.
 def cipher(plaintext, keys):
@@ -17,15 +17,15 @@ def cipher(plaintext, keys):
 
 	# 32 rounds of the algorithm
 	for i in range(ROUNDS):
-		print i
+		#print i
 		# Execution of f function
 		f_return  = f_function(pt1)
 
 		# Add round key operation
-		print "pt0", pt0
-		print "key", keys[i]	
+		#print "pt0", pt0
+		#print "key", keys[i]	
 		temp = add_round_key(pt0, f_return, keys[i])	
-		print "temp", temp
+		#print "temp", temp
 		
 		"""
 		print i
@@ -73,7 +73,7 @@ def decipher(ciphertext, keys):
 
 def f_function(pt1):	
 	# First. p_layer
-	new_state = p_layer(pt1)	
+	new_state = p_layer2(pt1)	
 
 	# Then, sbox_layer
 	new_state = sbox_layer(new_state)	
@@ -94,8 +94,19 @@ def p_layer(state):
 		state_offset =  i * 4
 		new_state[offset:offset + 4] = state[state_offset:state_offset + 4]
 
-	print "OUTPUT P:", new_state
 	return new_state
+
+def p_layer2(state):
+	new_state = [0] * 32
+
+	for i in range(len(new_state) / 4):
+		mark = PBOX_2[i]
+		offset = mark * 4;
+		ns_o = 4 * i
+		new_state[ns_o:ns_o+4] = state[offset:offset+4]
+
+	return new_state
+
 
 
 # Operation: sbox_layer
@@ -110,8 +121,7 @@ def sbox_layer(state):
 		
 		# SBOX operation
 		state[beg:beg+4] = int_to_bin(SBOX[sbox_index], 4)
-
-	print "OUTPUT S", state
+	
 	return state
 
 def rp_layer(state):
@@ -121,9 +131,7 @@ def rp_layer(state):
 	
 	# X-OR between the last operations
 	y = temp0 ^ temp1
-
-	print "y", y
-	
+		
 	return y.tolist()
 
 # Operation: add_round_key
@@ -136,6 +144,15 @@ def add_round_key(pt0, f_ret, key):
 
 	return new_state
 
+def pretty_print(array):
+  _str = ""
+
+  for i in range(0, 64, 4):
+    _str += hex(get_fragment_int(array, i, i + 4)).split('0x')[1]
+
+  return _str
+
+
 # Method to convert a number represented in binary in decimal
 def get_fragment_int(array, begin, end):
 	return int("".join(map(str, array[begin:end])), 2)
@@ -144,11 +161,3 @@ def get_fragment_int(array, begin, end):
 def int_to_bin(number, w):
 	return map(int, numpy.binary_repr(number, width=w))
 
-""" TEST """
-a = []
-for i in range(32):
-	a.append(0)
-a[0] = 1
-a[31] = 1
-
-# print f_function(a)

@@ -6,7 +6,7 @@
 '''
 
 from keys import generate_round_keys
-from cipher import cipher, decipher
+from cipher import cipher, decipher, pretty_print
 
 
 plaintext = [0] * 64
@@ -18,12 +18,12 @@ keys = generate_round_keys(key)
 # Cipher
 ct1, ct0 = cipher(plaintext, keys)
 ciphertext = ct1 + ct0
-print "cipher", ciphertext
+print "cipher", pretty_print(ciphertext)
 
 # Decipher
 pt1, pt0 = decipher(ciphertext, keys)
 pt = pt1 + pt0
-print "recovered", pt
+print "recovered", pretty_print(pt)
 
 """
 # Cipher the plaint text with the keys generated in the last step
