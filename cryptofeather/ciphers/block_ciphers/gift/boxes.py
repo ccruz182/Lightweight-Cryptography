@@ -1,10 +1,9 @@
 '''
-  File name: boxes.py
+  File name: /ciphers/block_ciphers/gift/boxes.py
   Author: Cesar Cruz
-  Project: Gift_LWC
+  Project: cryptofeather
   Python Version: 2.7
 '''
-
 BLOCK_SIZE = 64
 NUMBER_OF_ROUNDS = 28
 KEY_SIZE = 128

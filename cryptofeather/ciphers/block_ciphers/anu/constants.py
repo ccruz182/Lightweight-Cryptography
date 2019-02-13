@@ -1,7 +1,7 @@
 '''
-  File name: constants.py
+  File name: /ciphers/block_ciphers/anu/constants.py
   Author: Cesar Cruz
-  Project: ANU_LWC
+  Project: cryptofeather
   Python Version: 2.7
 '''
 

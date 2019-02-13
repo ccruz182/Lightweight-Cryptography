@@ -1,7 +1,7 @@
 '''
-  File name: keys.py
+  File name: /ciphers/block_ciphers/gift/keys.py
   Author: Cesar Cruz
-  Project: Gift_LWC
+  Project: cryptofeather
   Python Version: 2.7
 '''
 

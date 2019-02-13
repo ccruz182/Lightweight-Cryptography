@@ -1,10 +1,17 @@
+'''
+  File name: /block_ciphers/granule/keys.py
+  Author: Cesar Cruz
+  Project: cryptofeather
+  Python Version: 2.7
+'''
+
 import numpy
 
 from boxes import SBOX, ROUNDS
 
 
 # Method that generates the 32 keys of 128 bits that are used in the algorithm
-def generate_round_keys(key):
+def key_schedule(key):
 	keys = []	
 
 	for i in range(ROUNDS):			

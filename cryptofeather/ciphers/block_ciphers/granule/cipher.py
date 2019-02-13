@@ -1,16 +1,18 @@
 '''
-  File name: cipher.py
+  File name: /block_ciphers/granule/cipher.py
   Author: Cesar Cruz
-  Project: Granule_LWC
+  Project: cryptofeather
   Python Version: 2.7
 '''
 
 import numpy
 
 from boxes import SBOX, PBOX, ROUNDS, PBOX_2
+from utils.others import get_fragment_int, int_to_bin
+from utils.crypto import sbox_operation
 
 # Cipher method.
-def cipher(plaintext, keys):
+def _cipher(plaintext, keys):
 	# Plaintext is divided in two
 	pt1 = plaintext[0:32]
 	pt0 = plaintext[32:]
@@ -40,10 +42,10 @@ def cipher(plaintext, keys):
 		pt0 = pt1
 		pt1 = temp
 
-	return pt1, pt0	
+	return pt1 + pt0	
 
 # Decipher method.
-def decipher(ciphertext, keys):
+def _decipher(ciphertext, keys):
 	# It is necessary to exchange position, due to how the cipher text is entered
 	pt0 = ciphertext[0:32]
 	pt1 = ciphertext[32:]
@@ -69,7 +71,7 @@ def decipher(ciphertext, keys):
 		pt0 = pt1
 		pt1 = temp
 
-	return pt0, pt1	
+	return pt0 + pt1	
 
 def f_function(pt1):	
 	# First. p_layer
@@ -111,18 +113,7 @@ def p_layer2(state):
 
 # Operation: sbox_layer
 def sbox_layer(state):
-	# Each nibble enters into the SBOX
-	for i in range(len(state) / 4):
-		# Offset in each nibble
-		beg = 4 * i
-		
-		# Convert bin to dec
-		sbox_index = get_fragment_int(state, beg, beg + 4)
-		
-		# SBOX operation
-		state[beg:beg+4] = int_to_bin(SBOX[sbox_index], 4)
-	
-	return state
+	return sbox_operation(SBOX, state)
 
 def rp_layer(state):
 	# Two rotation
@@ -144,20 +135,4 @@ def add_round_key(pt0, f_ret, key):
 
 	return new_state
 
-def pretty_print(array):
-  _str = ""
-
-  for i in range(0, 64, 4):
-    _str += hex(get_fragment_int(array, i, i + 4)).split('0x')[1]
-
-  return _str
-
-
-# Method to convert a number represented in binary in decimal
-def get_fragment_int(array, begin, end):
-	return int("".join(map(str, array[begin:end])), 2)
-
-# Method to convert an integer to a string, representing the binary form of the integer
-def int_to_bin(number, w):
-	return map(int, numpy.binary_repr(number, width=w))
 

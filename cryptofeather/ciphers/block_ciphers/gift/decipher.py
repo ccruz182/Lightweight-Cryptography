@@ -1,7 +1,7 @@
 '''
-  File name: decipher.py
+  File name: /ciphers/block_ciphers/gift/decipher.py
   Author: Cesar Cruz
-  Project: Gift_LWC
+  Project: cryptofeather
   Python Version: 2.7
 '''
 import numpy

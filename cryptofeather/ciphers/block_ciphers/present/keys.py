@@ -1,16 +1,17 @@
 '''
-  File name: keys.py
+  File name: /ciphers/block_ciphers/present/keys.py
   Author: Cesar Cruz
-  Project: Present_LWC
+  Project: cryptofeather
   Python Version: 2.7
 '''
 
 import numpy
 
 from boxes import SBOX
+from utils.others import get_fragment_int, int_to_bin
 
 # Method that generates the 32 keys of 80 bits that are used in the algorithm
-def generate_round_keys(key):
+def key_schedule(key):
 	keys = []	
 
 	for i in range(1, 33):			
@@ -35,8 +36,3 @@ def update_key(current_key, round_counter):
 	
 	return list(current_key)[0:64], list(new_key)
 	
-def get_fragment_int(array, begin, end):
-	return int("".join(map(str, array[begin:end])), 2)
-
-def int_to_bin(number, w):
-	return map(int, numpy.binary_repr(number, width=w))

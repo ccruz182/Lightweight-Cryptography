@@ -1,9 +1,10 @@
 '''
-  File name: cipher.py
+  File name: /ciphers/block_ciphers/anu/cipher.py
   Author: Cesar Cruz
-  Project: ANU_LWC
+  Project: cryptofeather
   Python Version: 2.7
 '''
+
 import numpy
 
 from constants import BLOCK_LENGTH, KEY_LENGTH, NUMBER_OF_ROUNDS, SBOX, PBOX

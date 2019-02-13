@@ -4,6 +4,7 @@
   Project: cryptofeather
   Python Version: 2.7
 '''
+
 import numpy
 
 from constants import NUMBER_OF_ROUNDS, SBOX

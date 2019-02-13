@@ -1,7 +1,7 @@
 '''
-  File name: boxes.py
+  File name: /block_ciphers/granule/boxes.py
   Author: Cesar Cruz
-  Project: Granule_LWC
+  Project: cryptofeather
   Python Version: 2.7
 '''
 

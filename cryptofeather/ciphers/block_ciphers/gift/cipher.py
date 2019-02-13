@@ -1,10 +1,9 @@
 '''
-  File name: cipher.py
+  File name: /ciphers/block_ciphers/gift/cipher.py
   Author: Cesar Cruz
-  Project: Gift_LWC
+  Project: cryptofeather
   Python Version: 2.7
 '''
-
 import numpy
 
 from boxes import BLOCK_SIZE, NUMBER_OF_ROUNDS, SBOX, PBOX, CONSTANTS_28
