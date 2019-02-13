@@ -20,6 +20,9 @@ class Present:
   def set_plaintext(self, plaintext):
     self.plaintext = plaintext
 
+  def set_ciphertext(self, ciphertext):
+    self.ciphertext = ciphertext
+
   def cipher(self):
     sub_keys = key_schedule(self.key)
     self.ciphertext = _cipher(self.plaintext, sub_keys)
