@@ -7,6 +7,8 @@
 from keys import key_schedule
 from cipher import _cipher
 from decipher import _decipher
+from utils.others import pretty_print
+
 
 class Gift:
   key = []
@@ -29,7 +31,11 @@ class Gift:
     return self.ciphertext
 
   def decipher(self):
-   sub_keys = key_schedule(self.key)   
+   sub_keys = key_schedule(self.key)
+
+   for i in range(28):
+    print "i:", i
+    print pretty_print(sub_keys[i], 32)  
    recovered = _decipher(self.ciphertext, sub_keys)
 
    return recovered

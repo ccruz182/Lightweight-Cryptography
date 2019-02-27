@@ -8,7 +8,7 @@
 import numpy
 
 from boxes import SBOX, PBOX, ROUNDS, PBOX_2
-from utils.others import get_fragment_int, int_to_bin
+from utils.others import get_fragment_int, int_to_bin, pretty_print
 from utils.crypto import sbox_operation
 
 # Cipher method.
@@ -17,16 +17,26 @@ def _cipher(plaintext, keys):
 	pt1 = plaintext[0:32]
 	pt0 = plaintext[32:]
 
+	f = open("granule64_128.txt", "w")
+	f.write("Plaintext: " + pretty_print(plaintext, len(plaintext)) + "\n")
+
 	# 32 rounds of the algorithm
 	for i in range(ROUNDS):
-		#print i
+		f.write("Ronda " + str(i) + "\n")
+		f.write("\tLlave: " + pretty_print(keys[i], len(keys[i])) + "\n")
 		# Execution of f function
-		f_return  = f_function(pt1)
+		f_return, res  = f_function(pt1)
+
+		f.write("\tSalida de f: " + pretty_print(f_return, len(f_return)) + "\n")
+		f.write("\t\tPlayer: " + pretty_print(res[0], len(res[0])) + "\n")
+		f.write("\t\tSbox: " + pretty_print(res[1], len(res[1])) + "\n")
+		f.write("\t\tRP: " + pretty_print(res[2], len(res[2])) + "\n")
 
 		# Add round key operation
 		#print "pt0", pt0
 		#print "key", keys[i]	
-		temp = add_round_key(pt0, f_return, keys[i])	
+		temp = add_round_key(pt0, f_return, keys[i])
+		f.write("\tSalida de add_round_key: " + pretty_print(temp, len(temp)) + "\n")	
 		#print "temp", temp
 		
 		"""
@@ -42,6 +52,7 @@ def _cipher(plaintext, keys):
 		pt0 = pt1
 		pt1 = temp
 
+	f.write("\n\nCIFRADO: " + pretty_print(pt1 + pt0, len(pt1+pt0)))
 	return pt1 + pt0	
 
 # Decipher method.
@@ -53,7 +64,7 @@ def _decipher(ciphertext, keys):
 	# 32 rounds of the algorithm
 	for i in range(ROUNDS):
 		# Execution of f funcion
-		f_return  = f_function(pt1)	
+		f_return, x = f_function(pt1)	
 
 		# Add round key operation	
 		temp = add_round_key(pt0, f_return, keys[ROUNDS - 1 - i])
@@ -74,16 +85,21 @@ def _decipher(ciphertext, keys):
 	return pt0 + pt1	
 
 def f_function(pt1):	
-	# First. p_layer
-	new_state = p_layer2(pt1)	
-
+	# First. p_layer	
+	res = []
+	new_state = p_layer2(pt1[:])	
+	res.append(new_state[:])		
+	
 	# Then, sbox_layer
-	new_state = sbox_layer(new_state)	
+	new_state = sbox_layer(new_state[:])		
+	res.append(new_state[:])
 
 	# Next step, rp_layer
-	new_state = rp_layer(new_state)
+	new_state = rp_layer(new_state[:])
+	res.append(new_state[:])	
+
 	
-	return new_state
+	return new_state, res
 
 # Operation: p_layer
 def p_layer(state):

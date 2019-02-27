@@ -15,6 +15,9 @@ def pretty_print(array, lenght):
 
   return _str
 
+def sum_mod(x, y, mod):
+  return (x + y) % pow(2, mod)
+
 # Method to convert a number represented in binary in decimal
 def get_fragment_int(array, begin, end):
 	return int("".join(map(str, array[begin:end])), 2)

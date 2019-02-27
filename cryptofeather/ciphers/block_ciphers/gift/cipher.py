@@ -8,19 +8,27 @@ import numpy
 
 from boxes import BLOCK_SIZE, NUMBER_OF_ROUNDS, SBOX, PBOX, CONSTANTS_28
 from utils.crypto import sbox_operation, permutation_layer
-from utils.others import int_to_bin
+from utils.others import int_to_bin, pretty_print
 
 # Cipher method.
 def _cipher(plaintext, keys):
 	state = plaintext
+	f = open("gift64.txt", "w")
+	f.write("Texto plano: " + pretty_print(plaintext, len(plaintext)) + "\n")
 
 	# Rounds of the algorithm.
-	for i in range(0, NUMBER_OF_ROUNDS):		
+	for i in range(0, NUMBER_OF_ROUNDS):
+		f.write("Ronda " + str(i) + "\n")
+		f.write("\t Llave de ronda: " + pretty_print(keys[i], len(keys[i])) + "\n")
+		# f.write("\t Constante de ronda: " + )
 		state = subcells(state)
+		f.write("\t Salida subcells: " + pretty_print(state, len(state)) + "\n")
 		
 		state = permbits(state)	
+		f.write("\t Salida permbits: " + pretty_print(state, len(state)) + "\n")
 
 		state = add_round_key(state, keys[i], i)
+		f.write("\t Salida add_round_key: " + pretty_print(state, len(state)) + "\n")
 
 	return state
 

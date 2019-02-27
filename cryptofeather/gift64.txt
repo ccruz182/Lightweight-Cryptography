@@ -1,0 +1,141 @@
+Texto plano: 0000000000000000
+Ronda 0
+	 Llave de ronda: ffffffff
+	 Salida subcells: 1111111111111111
+	 Salida permbits: 1111111111111111
+	 Salida add_round_key: a22222222222222a
+Ronda 1
+	 Llave de ronda: ffffffff
+	 Salida subcells: b44444444444444b
+	 Salida permbits: 044c64405446c445
+	 Salida add_round_key: b77f57736775f7fe
+Ronda 2
+	 Llave de ronda: ffffffff
+	 Salida subcells: 799ef99c399fe9e8
+	 Salida permbits: dd9cfffbb9bc081a
+	 Salida add_round_key: 6eafccc88a8f33a1
+Ronda 3
+	 Llave de ronda: ffffffff
+	 Salida subcells: 38be55522b2eccba
+	 Salida permbits: 95ade178b7aa242e
+	 Salida add_round_key: 269ed24b84999f95
+Ronda 4
+	 Llave de ronda: ffffffff
+	 Salida subcells: 43d8046726dddedf
+	 Salida permbits: f0bf94ec464f075d
+	 Salida add_round_key: 438ca7df7574bce6
+Ronda 5
+	 Llave de ronda: ffffffff
+	 Salida subcells: 6c25b90e9f967583
+	 Salida permbits: 483467db8bb378c5
+	 Salida add_round_key: fb0754e8b808c376
+Ronda 6
+	 Llave de ronda: ffffffff
+	 Salida subcells: e719f68272125c93
+	 Salida permbits: f6753a28033bdc05
+	 Salida add_round_key: 4546091b3080673e
+Ronda 7
+	 Llave de ronda: ffffffff
+	 Salida subcells: 6f631da7c12139c8
+	 Salida permbits: 60483d1beb0d77b0
+	 Salida add_round_key: d37b0e28d8b6c40b
+Ronda 8
+	 Llave de ronda: ffffffff
+	 Salida subcells: 0c97184202735617
+	 Salida permbits: 1037c004af635035
+	 Salida add_round_key: a304f3379cd86b8e
+Ronda 9
+	 Llave de ronda: ffffffff
+	 Salida subcells: bc16ecc9d5023728
+	 Salida permbits: 1c4a6a13bc31cdc6
+	 Salida add_round_key: af7959208f82767d
+Ronda 10
+	 Llave de ronda: ffffffff
+	 Salida subcells: be9dfd412e249390
+	 Salida permbits: b423e3699d81dd68
+	 Salida add_round_key: 0710d05aaeba66db
+Ronda 11
+	 Llave de ronda: ffffffff
+	 Salida subcells: 19a101fbb87b3307
+	 Salida permbits: 0992992796f333b1
+	 Salida add_round_key: baa1aa14a5488882
+Ronda 12
+	 Llave de ronda: ffffffff
+	 Salida subcells: 7bbabba6bf622224
+	 Salida permbits: f222bf36bbf02ae2
+	 Salida add_round_key: 41118c05884b99d9
+Ronda 13
+	 Llave de ronda: ffffffff
+	 Salida subcells: 6aaa251f2267dd0d
+	 Salida permbits: e92ca765a269253d
+	 Salida add_round_key: 5a1f945691d21686
+Ronda 14
+	 Llave de ronda: ffffffff
+	 Salida subcells: fbaed6f3da04a323
+	 Salida permbits: e762f843b792af8b
+	 Salida add_round_key: 5451cb7084219430
+Ronda 15
+	 Llave de ronda: ffffffff
+	 Salida subcells: f6fa5791264ad6c1
+	 Salida permbits: f7a6a9287165e54d
+	 Salida add_round_key: 44959a1b42565efe
+Ronda 16
+	 Llave de ronda: ffffffff
+	 Salida subcells: 66dfdba764f3f8e8
+	 Salida permbits: f65cedaa6b6d5b7a
+	 Salida add_round_key: 456fde995856e041
+Ronda 17
+	 Llave de ronda: ffffffff
+	 Salida subcells: 6f3e08ddf2f3816a
+	 Salida permbits: f9787ca1ac7661ba
+	 Salida add_round_key: 4a4b4f929fcdd209
+Ronda 18
+	 Llave de ronda: ffffffff
+	 Salida subcells: 6b676ed4de50041d
+	 Salida permbits: 67797e04ecd034c5
+	 Salida add_round_key: d44a4d37df6b0ffe
+Ronda 19
+	 Llave de ronda: ffffffff
+	 Salida subcells: 066b60c90e371ee8
+	 Salida permbits: ac3a0a4864ad7176
+	 Salida add_round_key: 1f09397b571ec2cd
+Ronda 20
+	 Llave de ronda: ffffffff
+	 Salida subcells: ae1dcd97f9a85450
+	 Salida permbits: b5c56db08a95dda4
+	 Salida add_round_key: 06f65e83b9aee617
+Ronda 21
+	 Llave de ronda: ffffffff
+	 Salida subcells: 13e3f82c7db883a9
+	 Salida permbits: 2cda96b979903a6b
+	 Salida add_round_key: 9fe9a58a4a238158
+Ronda 22
+	 Llave de ronda: ffffffff
+	 Salida subcells: de8dbf2b6b4c2af2
+	 Salida permbits: eae3c37a9bcedf02
+	 Salida add_round_key: 59d0f049a8f56c31
+Ronda 23
+	 Llave de ronda: ffffffff
+	 Salida subcells: fd01e16db2ef35ca
+	 Salida permbits: 4ca837eb9477dbb4
+	 Salida add_round_key: ff9b04d8a7cce887
+Ronda 24
+	 Llave de ronda: ffffffff
+	 Salida subcells: eed71602b9558229
+	 Salida permbits: 721ae070e3d0d49b
+	 Salida add_round_key: c129d343d063e7a0
+Ronda 25
+	 Llave de ronda: ffffffff
+	 Salida subcells: 5a4d0c6c013c89b1
+	 Salida permbits: e8914459dc08162b
+	 Salida add_round_key: 5ba2776aef3b2598
+Ronda 26
+	 Llave de ronda: ffffffff
+	 Salida subcells: f7b4993b8ec74fd2
+	 Salida permbits: 7927f1c91beeebd4
+	 Salida add_round_key: ca14c2fa28ddd0ef
+Ronda 27
+	 Llave de ronda: ffffffff
+	 Salida subcells: 5ba654eb4200018e
+	 Salida permbits: 6c68d80db7022700
+	 Salida add_round_key: df5beb3e843194bb

@@ -1,0 +1,228 @@
+Plaintext: ffffffffffffffff
+Ronda 0
+	Llave: ffffffff
+	Salida de f: aaaaaaaa
+		Player: ffffffff
+		Sbox: 33333333
+		RP: aaaaaaaa
+	Salida de add_round_key: aaaaaaaa
+Ronda 1
+	Llave: ffffff33
+	Salida de f: 99999999
+		Player: aaaaaaaa
+		Sbox: bbbbbbbb
+		RP: 99999999
+	Salida de add_round_key: 99999955
+Ronda 2
+	Llave: ffffff33
+	Salida de f: 9fff3f5f
+		Player: 99995959
+		Sbox: aaaa9a9a
+		RP: 9fff3f5f
+	Salida de add_round_key: caaa6ac6
+Ronda 3
+	Llave: ffffff33
+	Salida de f: cca0da7a
+		Player: 6caaca6a
+		Sbox: 26bb6b2b
+		RP: cca0da7a
+	Salida de add_round_key: aac6bc1c
+Ronda 4
+	Llave: ffffff3d
+	Salida de f: e0bb8f74
+		Player: ba6a1ccc
+		Sbox: 0b2b7666
+		RP: e0bb8f74
+	Salida de add_round_key: d5ee1a8f
+Ronda 5
+	Llave: ffffff37
+	Salida de f: 859cc657
+		Player: 1de58efa
+		Sbox: 7cd95d3b
+		RP: 859cc657
+	Salida de add_round_key: d0a5857c
+Ronda 6
+	Llave: 9fffff3e
+	Salida de f: a0c2d053
+		Player: 8d507ac5
+		Sbox: 5c9efb69
+		RP: a0c2d053
+	Salida de add_round_key: ead335e2
+Ronda 7
+	Llave: 1fffff3f
+	Salida de f: 27b5e59c
+		Player: 3e3aed25
+		Sbox: 4d4bdc89
+		RP: 27b5e59c
+	Salida de add_round_key: e8ef9fdf
+Ronda 8
+	Llave: 9fffff32
+	Salida de f: d38d5f54
+		Player: 9ef8deff
+		Sbox: ad35cd33
+		RP: d38d5f54
+	Salida de add_round_key: a6a19584
+Ronda 9
+	Llave: 6fffff39
+	Salida de f: 9e9f88d0
+		Player: 9a168a45
+		Sbox: ab725b19
+		RP: 9e9f88d0
+	Salida de add_round_key: 198fe836
+Ronda 10
+	Llave: b9ffff31
+	Salida de f: 1747601d
+		Player: e1f93868
+		Sbox: d73a4525
+		RP: 1747601d
+	Salida de add_round_key: 08190aa8
+Ronda 11
+	Llave: f1ffff30
+	Salida de f: 0d4b9601
+		Player: 0098a18a
+		Sbox: eea5b75b
+		RP: 0d4b9601
+	Salida de add_round_key: e53b8107
+Ronda 12
+	Llave: 79ffff3b
+	Salida de f: 9a9d8014
+		Player: 8eb50371
+		Sbox: 5d09e4f7
+		RP: 9a9d8014
+	Salida de add_round_key: eb7b7587
+Ronda 13
+	Llave: 96ffff3a
+	Salida de f: 07fb7f58
+		Player: 7ebb8775
+		Sbox: fd005ff9
+		RP: 07fb7f58
+	Salida de add_round_key: 743f0165
+Ronda 14
+	Llave: 4b9fff35
+	Salida de f: 931af016
+		Player: 07f46351
+		Sbox: ef312497
+		RP: 931af016
+	Salida de add_round_key: 33fe7aa4
+Ronda 15
+	Llave: 8f1fff33
+	Salida de f: e4bb6509
+		Player: 73e3af4a
+		Sbox: f4d4b31b
+		RP: e4bb6509
+	Salida de add_round_key: 1f9b9b5f
+Ronda 16
+	Llave: 879fff3d
+	Salida de f: fd406ff6
+		Player: 91bf59fb
+		Sbox: a7039a30
+		RP: fd406ff6
+	Salida de add_round_key: 4921ea6f
+Ronda 17
+	Llave: d96fff3c
+	Salida de f: 324a54bf
+		Player: e41962fa
+		Sbox: d17a283b
+		RP: 324a54bf
+	Salida de add_round_key: f4be30dc
+Ronda 18
+	Llave: 54b9ff36
+	Salida de f: d3c0a239
+		Player: 3fe4dbc0
+		Sbox: 43d1c06e
+		RP: d3c0a239
+	Salida de add_round_key: ce58b760
+Ronda 19
+	Llave: 28f1ffd4
+	Salida de f: c7781def
+		Player: bc8e6507
+		Sbox: 065d29ef
+		RP: c7781def
+	Salida de add_round_key: 1b37d2e7
+Ronda 20
+	Llave: 1879ffd8
+	Salida de f: ee4cb24a
+		Player: d17be372
+		Sbox: c7f0d4f8
+		RP: ee4cb24a
+	Salida de add_round_key: 386dfaf2
+Ronda 21
+	Llave: 6d96ffd7
+	Salida de f: c57d4049
+		Player: f3d8f62a
+		Sbox: 34c5328b
+		RP: c57d4049
+	Salida de add_round_key: b3dc6d79
+Ronda 22
+	Llave: e54b9fde
+	Salida de f: d9d33b49
+		Player: 6bc37d9d
+		Sbox: 2064fcac
+		RP: d9d33b49
+	Salida de add_round_key: 04f55e65
+Ronda 23
+	Llave: 328f1fda
+	Salida de f: 4179ac31
+		Player: 50546f5e
+		Sbox: 9e91239d
+		RP: 4179ac31
+	Salida de add_round_key: c02ade92
+Ronda 24
+	Llave: 21879fd5
+	Salida de f: 0177df66
+		Player: dca0922e
+		Sbox: c6bea88d
+		RP: 0177df66
+	Salida de add_round_key: 24051ed6
+Ronda 25
+	Llave: c6d96fd0
+	Salida de f: b8b61b29
+		Player: 1254d06e
+		Sbox: 7891ce2d
+		RP: b8b61b29
+	Salida de add_round_key: be45aa6b
+Ronda 26
+	Llave: 3e54b9db
+	Salida de f: d515be6c
+		Player: ab5e64ba
+		Sbox: b09d210b
+		RP: d515be6c
+	Salida de add_round_key: cf441961
+Ronda 27
+	Llave: f328f1d9
+	Salida de f: 2ca0a3ab
+		Player: 1c4f6419
+		Sbox: 7613217a
+		RP: 2ca0a3ab
+	Salida de add_round_key: 61cdf819
+Ronda 28
+	Llave: d21879d1
+	Salida de f: 81785479
+		Player: f6d11c98
+		Sbox: 32c776a5
+		RP: 81785479
+	Salida de add_round_key: 9c2434c9
+Ronda 29
+	Llave: ac6d96df
+	Salida de f: 6acd8e54
+		Player: 394cc294
+		Sbox: 4a1668a1
+		RP: 6acd8e54
+	Salida de add_round_key: a76de092
+Ronda 30
+	Llave: 83e54b52
+	Salida de f: 7289157e
+		Player: ead79620
+		Sbox: dbcfa28e
+		RP: 7289157e
+	Salida de add_round_key: 6d486ae5
+Ronda 31
+	Llave: 5f328fe7
+	Salida de f: bf37ffcf
+		Player: 668de45a
+		Sbox: 225cd19b
+		RP: bf37ffcf
+	Salida de add_round_key: 476890ba
+
+
+CIFRADO: 476890ba6d486ae5
