@@ -1,228 +1,228 @@
-Plaintext: ffffffffffffffff
+Plaintext: 0000000000000000
 Ronda 0
-	Llave: ffffffff
-	Salida de f: aaaaaaaa
-		Player: ffffffff
-		Sbox: 33333333
-		RP: aaaaaaaa
-	Salida de add_round_key: aaaaaaaa
+	Llave: 00000000
+	Salida de f: 66666666
+		Player: 00000000
+		Sbox: eeeeeeee
+		RP: 66666666
+	Salida de add_round_key: 66666666
 Ronda 1
-	Llave: ffffff33
-	Salida de f: 99999999
-		Player: aaaaaaaa
-		Sbox: bbbbbbbb
-		RP: 99999999
-	Salida de add_round_key: 99999955
+	Llave: 000000ee
+	Salida de f: cccccccc
+		Player: 66666666
+		Sbox: 22222222
+		RP: cccccccc
+	Salida de add_round_key: cccccc22
 Ronda 2
-	Llave: ffffff33
-	Salida de f: 9fff3f5f
-		Player: 99995959
-		Sbox: aaaa9a9a
-		RP: 9fff3f5f
-	Salida de add_round_key: caaa6ac6
+	Llave: 000000ee
+	Salida de f: 9556d714
+		Player: cccc2c2c
+		Sbox: 66668686
+		RP: 9556d714
+	Salida de add_round_key: f330b19c
 Ronda 3
-	Llave: ffffff33
-	Salida de f: cca0da7a
-		Player: 6caaca6a
-		Sbox: 26bb6b2b
-		RP: cca0da7a
-	Salida de add_round_key: aac6bc1c
+	Llave: 000000ee
+	Salida de f: c19558d4
+		Player: bf0393c1
+		Sbox: 03e4a467
+		RP: c19558d4
+	Salida de add_round_key: 0d599418
 Ronda 4
-	Llave: ffffff3d
-	Salida de f: e0bb8f74
-		Player: ba6a1ccc
-		Sbox: 0b2b7666
-		RP: e0bb8f74
-	Salida de add_round_key: d5ee1a8f
+	Llave: 000000e7
+	Salida de f: 19ecbdb4
+		Player: 909d1584
+		Sbox: aeac7951
+		RP: 19ecbdb4
+	Salida de add_round_key: eadc0ccf
 Ronda 5
-	Llave: ffffff37
-	Salida de f: 859cc657
-		Player: 1de58efa
-		Sbox: 7cd95d3b
-		RP: 859cc657
-	Salida de add_round_key: d0a5857c
+	Llave: 800000e6
+	Salida de f: d8776603
+		Player: 0ecacdfc
+		Sbox: ed6b6c36
+		RP: d8776603
+	Salida de add_round_key: 552ef2fd
 Ronda 6
-	Llave: 9fffff3e
-	Salida de f: a0c2d053
-		Player: 8d507ac5
-		Sbox: 5c9efb69
-		RP: a0c2d053
-	Salida de add_round_key: ead335e2
+	Llave: 700000ec
+	Salida de f: 77175151
+		Player: f5e5f2d2
+		Sbox: 39d938c8
+		RP: 77175151
+	Salida de add_round_key: edcb5d72
 Ronda 7
-	Llave: 1fffff3f
-	Salida de f: 27b5e59c
-		Player: 3e3aed25
-		Sbox: 4d4bdc89
-		RP: 27b5e59c
-	Salida de add_round_key: e8ef9fdf
+	Llave: 700000eb
+	Salida de f: 6d09c3df
+		Player: 5ebd7c2d
+		Sbox: 9d0cf68c
+		RP: 6d09c3df
+	Salida de add_round_key: 482731c9
 Ronda 8
-	Llave: 9fffff32
-	Salida de f: d38d5f54
-		Player: 9ef8deff
-		Sbox: ad35cd33
-		RP: d38d5f54
-	Salida de add_round_key: a6a19584
+	Llave: f00000e0
+	Salida de f: 4956484c
+		Player: 3478c291
+		Sbox: 41f568a7
+		RP: 4956484c
+	Salida de add_round_key: 549d15de
 Ronda 9
-	Llave: 6fffff39
-	Salida de f: 9e9f88d0
-		Player: 9a168a45
-		Sbox: ab725b19
-		RP: 9e9f88d0
-	Salida de add_round_key: 198fe836
+	Llave: 380000e5
+	Salida de f: 55f4a8f0
+		Player: 15d4d9e5
+		Sbox: 79c1cad9
+		RP: 55f4a8f0
+	Salida de add_round_key: 25d399dc
 Ronda 10
-	Llave: b9ffff31
-	Salida de f: 1747601d
-		Player: e1f93868
-		Sbox: d73a4525
-		RP: 1747601d
-	Salida de add_round_key: 08190aa8
+	Llave: b70000ea
+	Salida de f: 7477a232
+		Player: 9235ddc9
+		Sbox: a849cc6a
+		RP: 7477a232
+	Salida de add_round_key: 97eab706
 Ronda 11
-	Llave: f1ffff30
-	Salida de f: 0d4b9601
-		Player: 0098a18a
-		Sbox: eea5b75b
-		RP: 0d4b9601
-	Salida de add_round_key: e53b8107
+	Llave: 670000e2
+	Salida de f: 74eacb66
+		Player: b9a70e67
+		Sbox: 0abfed2f
+		RP: 74eacb66
+	Salida de add_round_key: 36395258
 Ronda 12
-	Llave: 79ffff3b
-	Salida de f: 9a9d8014
-		Player: 8eb50371
-		Sbox: 5d09e4f7
-		RP: 9a9d8014
-	Salida de add_round_key: eb7b7587
+	Llave: 5f0000ef
+	Salida de f: e3a3144a
+		Player: 53965382
+		Sbox: 94a29458
+		RP: e3a3144a
+	Salida de add_round_key: 2b49a3a3
 Ronda 13
-	Llave: 96ffff3a
-	Salida de f: 07fb7f58
-		Player: 7ebb8775
-		Sbox: fd005ff9
-		RP: 07fb7f58
-	Salida de add_round_key: 743f0165
+	Llave: 838000e1
+	Salida de f: 6bf38470
+		Player: a29ba433
+		Sbox: b8a0b144
+		RP: 6bf38470
+	Salida de add_round_key: de4ad6c9
 Ronda 14
-	Llave: 4b9fff35
-	Salida de f: 931af016
-		Player: 07f46351
-		Sbox: ef312497
-		RP: 931af016
-	Salida de add_round_key: 33fe7aa4
+	Llave: ab7000e9
+	Salida de f: 776cfc48
+		Player: ddaec496
+		Sbox: ccbd61a2
+		RP: 776cfc48
+	Salida de add_round_key: f7555f02
 Ronda 15
-	Llave: 8f1fff33
-	Salida de f: e4bb6509
-		Player: 73e3af4a
-		Sbox: f4d4b31b
-		RP: e4bb6509
-	Salida de add_round_key: 1f9b9b5f
+	Llave: d67000e8
+	Salida de f: 495899dd
+		Player: 5f57052f
+		Sbox: 939fe983
+		RP: 495899dd
+	Salida de add_round_key: 41624ffc
 Ronda 16
-	Llave: 879fff3d
-	Salida de f: fd406ff6
-		Player: 91bf59fb
-		Sbox: a7039a30
-		RP: fd406ff6
-	Salida de add_round_key: 4921ea6f
+	Llave: 15f000e4
+	Salida de f: 803fc7e8
+		Player: 4421f6cf
+		Sbox: 11873263
+		RP: 803fc7e8
+	Salida de add_round_key: 629a980e
 Ronda 17
-	Llave: d96fff3c
-	Salida de f: 324a54bf
-		Player: e41962fa
-		Sbox: d17a283b
-		RP: 324a54bf
-	Salida de add_round_key: f4be30dc
+	Llave: 783800ee
+	Salida de f: 21a6da83
+		Player: 96a209e8
+		Sbox: a2b8ead5
+		RP: 21a6da83
+	Salida de add_round_key: 18fc9591
 Ronda 18
-	Llave: 54b9ff36
-	Salida de f: d3c0a239
-		Player: 3fe4dbc0
-		Sbox: 43d1c06e
-		RP: d3c0a239
-	Salida de add_round_key: ce58b760
+	Llave: 0ab700e7
+	Salida de f: 6ed846a0
+		Player: 91c89f15
+		Sbox: a765a379
+		RP: 6ed846a0
+	Salida de add_round_key: 06f5de49
 Ronda 19
-	Llave: 28f1ffd4
-	Salida de f: c7781def
-		Player: bc8e6507
-		Sbox: 065d29ef
-		RP: c7781def
-	Salida de add_round_key: 1b37d2e7
+	Llave: cd67007d
+	Salida de f: 61d56a90
+		Player: d0564f9e
+		Sbox: ce9213ad
+		RP: 61d56a90
+	Salida de add_round_key: b44eff7c
 Ronda 20
-	Llave: 1879ffd8
-	Salida de f: ee4cb24a
-		Player: d17be372
-		Sbox: c7f0d4f8
-		RP: ee4cb24a
-	Salida de add_round_key: 386dfaf2
+	Llave: c15f0073
+	Salida de f: 0526666e
+		Player: fbe474cf
+		Sbox: 30d1f163
+		RP: 0526666e
+	Salida de add_round_key: c28cb854
 Ronda 21
-	Llave: 6d96ffd7
-	Salida de f: c57d4049
-		Player: f3d8f62a
-		Sbox: 34c5328b
-		RP: c57d4049
-	Salida de add_round_key: b3dc6d79
+	Llave: a7838076
+	Salida de f: 33ae857e
+		Player: bcc25848
+		Sbox: 06689515
+		RP: 33ae857e
+	Salida de add_round_key: 2063fa74
 Ronda 22
-	Llave: e54b9fde
-	Salida de f: d9d33b49
-		Player: 6bc37d9d
-		Sbox: 2064fcac
-		RP: d9d33b49
-	Salida de add_round_key: 04f55e65
+	Llave: 70ab707c
+	Salida de f: d74b5588
+		Player: f230764a
+		Sbox: 384ef21b
+		RP: d74b5588
+	Salida de add_round_key: 656c9da0
 Ronda 23
-	Llave: 328f1fda
-	Salida de f: 4179ac31
-		Player: 50546f5e
-		Sbox: 9e91239d
-		RP: 4179ac31
-	Salida de add_round_key: c02ade92
+	Llave: 3cd67074
+	Salida de f: 50e218d7
+		Player: 96c5a60d
+		Sbox: a269b2ec
+		RP: 50e218d7
+	Salida de add_round_key: 4c5792d7
 Ronda 24
-	Llave: 21879fd5
-	Salida de f: 0177df66
-		Player: dca0922e
-		Sbox: c6bea88d
-		RP: 0177df66
-	Salida de add_round_key: 24051ed6
+	Llave: 6c15f078
+	Salida de f: 7698ca71
+		Player: 947cd572
+		Sbox: a1f6c9f8
+		RP: 7698ca71
+	Salida de add_round_key: 7fe1a7a9
 Ronda 25
-	Llave: c6d96fd0
-	Salida de f: b8b61b29
-		Player: 1254d06e
-		Sbox: 7891ce2d
-		RP: b8b61b29
-	Salida de add_round_key: be45aa6b
+	Llave: 1a783877
+	Salida de f: a2b011c5
+		Player: a71fae97
+		Sbox: bf73bdaf
+		RP: a2b011c5
+	Salida de add_round_key: f49fbb65
 Ronda 26
-	Llave: 3e54b9db
-	Salida de f: d515be6c
-		Player: ab5e64ba
-		Sbox: b09d210b
-		RP: d515be6c
-	Salida de add_round_key: cf441961
+	Llave: b70ab77e
+	Salida de f: 2cc2c815
+		Player: bff4695b
+		Sbox: 03312a90
+		RP: 2cc2c815
+	Salida de add_round_key: e429d8c2
 Ronda 27
-	Llave: f328f1d9
-	Salida de f: 2ca0a3ab
-		Player: 1c4f6419
-		Sbox: 7613217a
-		RP: 2ca0a3ab
-	Salida de add_round_key: 61cdf819
+	Llave: 63cd6773
+	Salida de f: 3d1ee0c6
+		Player: de94c228
+		Sbox: cda16885
+		RP: 3d1ee0c6
+	Salida de add_round_key: aa4c3cd0
 Ronda 28
-	Llave: d21879d1
-	Salida de f: 81785479
-		Player: f6d11c98
-		Sbox: 32c776a5
-		RP: 81785479
-	Salida de add_round_key: 9c2434c9
+	Llave: a6c15f7d
+	Salida de f: e139d01a
+		Player: 3acad40c
+		Sbox: 4b6bc1e6
+		RP: e139d01a
+	Salida de add_round_key: a3d157a5
 Ronda 29
-	Llave: ac6d96df
-	Salida de f: 6acd8e54
-		Player: 394cc294
-		Sbox: 4a1668a1
-		RP: 6acd8e54
-	Salida de add_round_key: a76de092
+	Llave: c1a783ac
+	Salida de f: 52e41b07
+		Player: 5a13ad57
+		Sbox: 9b74bc9f
+		RP: 52e41b07
+	Salida de add_round_key: 390fa47b
 Ronda 30
-	Llave: 83e54b52
-	Salida de f: 7289157e
-		Player: ead79620
-		Sbox: dbcfa28e
-		RP: 7289157e
-	Salida de add_round_key: 6d486ae5
+	Llave: 3b70ab26
+	Salida de f: d3838dfa
+		Player: a3f970b4
+		Sbox: b43afe01
+		RP: d3838dfa
+	Salida de add_round_key: 4b227179
 Ronda 31
-	Llave: 5f328fe7
-	Salida de f: bf37ffcf
-		Player: 668de45a
-		Sbox: 225cd19b
-		RP: bf37ffcf
-	Salida de add_round_key: 476890ba
+	Llave: 763cd620
+	Salida de f: 89e0e36e
+		Player: 742b7291
+		Sbox: f180f8a7
+		RP: 89e0e36e
+	Salida de add_round_key: c6d39135
 
 
-CIFRADO: 476890ba6d486ae5
+CIFRADO: c6d391354b227179

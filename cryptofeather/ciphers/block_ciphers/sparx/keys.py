@@ -9,17 +9,23 @@ from speckey import arx_box
 from utils.others import get_fragment_int, int_to_bin, sum_mod
 
 def k_64(k, r):
-  k0l, k0r, k1l, k1r, k2l, k2r, k3l, k3r = split(k)
-  
+  t_k = sum(k, [])
+
+  k0l, k0r, k1l, k1r, k2l, k2r, k3l, k3r = split(t_k)  
   k0l, k0r = arx_box(k0l, k0r)
 
-  k1l = sum_mod(get_fragment_int(k1l, 0, WORD_SIZE / 2), get_fragment_int(k0l, 0, WORD_SIZE / 2), 16)
+  k1l = sum_mod(get_fragment_int(k1l, 0, WORD_SIZE / 2), get_fragment_int(k0l, 0, WORD_SIZE / 2), 16)  
   k1r = sum_mod(get_fragment_int(k1r, 0, WORD_SIZE / 2), get_fragment_int(k0r, 0, WORD_SIZE / 2), 16)
 
   k3r = sum_mod(get_fragment_int(k3r, 0, WORD_SIZE / 2), r, 16)
 
-  return k3l + int_to_bin(k3r, WORD_SIZE / 2) + k0l + k0r + int_to_bin(k1l, WORD_SIZE / 2) + int_to_bin(k1r, WORD_SIZE / 2) + k2l + k2r
+  ret = k3l + int_to_bin(k3r, WORD_SIZE / 2) + k0l + k0r + int_to_bin(k1l, WORD_SIZE / 2) + int_to_bin(k1r, WORD_SIZE / 2) + k2l + k2r
 
+  key_ret = []
+  for i in range(0, len(t_k), WORD_SIZE):
+    key_ret.append(ret[i: i + WORD_SIZE])
+
+  return key_ret
 
 def split(key):
   slices = []
