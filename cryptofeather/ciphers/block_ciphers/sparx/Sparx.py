@@ -1,4 +1,4 @@
-from cipher import _cipher
+from cipher import _cipher, _decipher
 
 class Sparx:
   key = []
@@ -15,3 +15,7 @@ class Sparx:
 
   def cipher(self):      
     return _cipher(self.plaintext, self.key)
+
+  def decipher(self, ciphertext):
+    return _decipher(ciphertext, self.key)
+

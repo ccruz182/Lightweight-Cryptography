@@ -8,6 +8,21 @@ from constants import WORD_SIZE, KEY_SIZE
 from speckey import arx_box
 from utils.others import get_fragment_int, int_to_bin, sum_mod
 
+NS = 8
+
+def key_schedule(key):
+  k = []
+  keys = []
+
+  for i in range(0, len(key), WORD_SIZE):
+    k.append(key[i: i + WORD_SIZE])
+
+  for q in range(1, 2 * NS + 2, 1):    
+    keys.append(k)
+    k = k_64(k, q)
+
+  return keys
+
 def k_64(k, r):
   t_k = sum(k, [])
 
