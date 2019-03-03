@@ -21,24 +21,38 @@ int SBOX[16] = {14, 4, 11, 1, 7, 9, 12, 10, 13, 2, 0, 15, 8, 5, 3, 6};
 	Principal function's definition
 */
 int** get_and_update_round_key(int* key, int round_counter);
+int* sbox_layer(int* state);
+
 
 /* 
 	Auxiliar function's definition
 */
 int 	array_to_int(int* array, int size);
+int* 	copy_array(int* origin, int size);
 int*	get_chunk(int* array, int begin, int final);
 int* 	int_to_bin_array(int int_num, int size);
-int* 	left_rotation(int* array, int times);
+int* 	left_rotation(int* array, int times, int array_size);
 void 	print_array(int*array, int size);
 int* 	replace_values(int* original, int* replacer, int begin, int end);
+int* 	right_rotation(int* array, int times, int array_size);
 int* 	sbox_operation(int* state, int begin, int end, int num_bits);
 int* 	xor(int* arr1, int* arr2, int size);
 
 /* Main */
 int main(void) {
-	int key[KEY_SIZE], plaintext[BLOCK_SIZE];
+	int* key = malloc(sizeof(int) * KEY_SIZE);
   int i;
-  int* state = malloc(sizeof(int) * BLOCK_SIZE);
+  int* left = malloc(sizeof(int) * BLOCK_SIZE / 2);
+  int* right = malloc(sizeof(int) * BLOCK_SIZE / 2);
+
+  /* init vector */
+  for (i = 0; i < BLOCK_SIZE; i++) {    
+    if (i < BLOCK_SIZE / 2) {
+    	left[i] = 0;
+    } else {
+    	right[BLOCK_SIZE / 2 - i] = 0;
+    }
+  }
 
   /* Key initialization */
   for (i = 0; i < KEY_SIZE; i++) {
@@ -46,11 +60,40 @@ int main(void) {
   }
 
   for (i = 0; i < ROUNDS; i++) {
-  	printf("--> %d\n", i);
+  	// printf("--> %d\n", i);
+
+  	/* First, the round keys are generated */  	
   	int** round_keys = get_and_update_round_key(key, i);  	
-  	print_array(round_keys[0], ROUND_KEY_SIZE);
-  	//print_array(round_keys[1], ROUND_KEY_SIZE);  	
+  	key = copy_array(round_keys[2], KEY_SIZE);  
+  	
+  	/* SBOX with the left side of the state */
+  	left = sbox_layer(get_chunk(left, 0, 32)); // SBOX[P_MSB]
+  	// print_array(left, ROUND_KEY_SIZE);
+  	
+  	/* Right rotation by 3 bits */
+  	int* tmp_right = right_rotation(right, 3, ROUND_KEY_SIZE);
+  	// print_array(tmp_right, ROUND_KEY_SIZE);
+
+		/* XOR with RK1 */
+		left = xor(left, xor(tmp_right, round_keys[0], ROUND_KEY_SIZE), ROUND_KEY_SIZE);
+  	// print_array(left, ROUND_KEY_SIZE);
+
+		/* Left rotation by 10 bits */
+		int* tmp_left = left_rotation(left, 10, ROUND_KEY_SIZE);
+		// print_array(tmp_left, ROUND_KEY_SIZE);
+
+		/* XOR with RK2 */
+		tmp_left = xor(right, xor(tmp_left, round_keys[1], ROUND_KEY_SIZE), ROUND_KEY_SIZE);
+		// print_array(tmp_left, ROUND_KEY_SIZE);
+
+		right = copy_array(left, ROUND_KEY_SIZE);
+		left = copy_array(tmp_left, ROUND_KEY_SIZE);
 	}
+
+	printf("LEFT: ");
+	print_array(left, ROUND_KEY_SIZE);
+	printf("RIGHT: ");
+	print_array(right, ROUND_KEY_SIZE);
 }
 
 
@@ -78,33 +121,39 @@ int** get_and_update_round_key(int* key, int round_counter) {
 	*/
 	
 	// Step 1. Rotate state to the left 13 times
-	state = left_rotation(state, 13); // KEY <<< 13
-	// printf("\t1. ");
-	// print_array(state, KEY_SIZE);
-	
+	state = left_rotation(state, 13, KEY_SIZE); // KEY <<< 13
+		
 	// Step 2. Substitution layer
 	int* sbox_values = sbox_operation(state, 124, KEY_SIZE, 4); // KEY[3...0] = S(KEY[3...0])	
 	state = replace_values(state, sbox_values, 124, KEY_SIZE);
-	// printf("\t2. ");
-	// print_array(state, KEY_SIZE);
 
 	// Step 3. Substitution layer
 	int* sbox_values2 = sbox_operation(state, 120, 124, 4); // KEY[7...4] = S(KEY[7...4])		
 	state = replace_values(state, sbox_values2, 120, 124);
-	// printf("\t3. ");
-	// print_array(state, KEY_SIZE);	
 	
 	/* Step 4. X-OR with round counter */
 	int* chunk_xor = get_chunk(state, 64, 69); 
 	int* round_counter_bin = int_to_bin_array(round_counter, 5);    
 	int* xor_result = xor(chunk_xor, round_counter_bin, 5);   
 	state = replace_values(state, xor_result, 64, 69);
-	// printf("\t4. ");
-	// print_array(state, KEY_SIZE);
 	 
-	key = state;
+	key = copy_array(state, KEY_SIZE);
+	keys[2] = copy_array(state, KEY_SIZE);
 
   return keys;
+}
+
+/* sbox_layer operation */
+int* sbox_layer(int* state) {
+  int i, begin;
+
+  for (i = 0; i < (BLOCK_SIZE / 8); i++) {
+    begin = 4 * i;
+    int* sbox_values = sbox_operation(state, begin, begin + 4, 4);
+    state = replace_values(state, sbox_values, begin, begin + 4);
+  }
+
+  return state;
 }
 
 /*
@@ -120,6 +169,16 @@ int array_to_int(int* array, int size) {
   }
 
   return value;
+}
+
+int* copy_array(int* origin, int size) {
+  int* tmp = malloc(sizeof(int) * size);
+  
+  for (int i = 0; i < size; i++) {
+    tmp[i] = origin[i];
+  }
+
+  return tmp;
 }
 
 /* Function that gets a chunk of an array, from one position (begin) to another (final) */
@@ -151,21 +210,22 @@ int* int_to_bin_array(int int_num, int size) {
 }
 
 /* Function that shift the content of an array to the left a number of positions (times) */
-int* left_rotation(int* array, int times) {
+int* left_rotation(int* array, int times, int array_size) {
   int i = 0, j = 0;
+  int* tmp = malloc(sizeof(int) * array_size);
+  tmp = copy_array(array, array_size);
 
   /* Shift to the left of an array */
   for (j = 0; j < times; j++) {
-    int pos0 = array[0];
-    for (i = 0; i < KEY_SIZE - 1; i++) {
-      array[i] = array[i + 1];
+    int pos0 = tmp[0];
+    for (i = 0; i < array_size - 1; i++) {
+      tmp[i] = tmp[i + 1];
     }
 
-    array[i] = pos0;
+    tmp[i] = pos0;
   }
   
-
-  return array;
+  return tmp;
 }
 
 /* Function that prints an array on account of the size */
@@ -186,6 +246,25 @@ int* replace_values(int* original, int* replacer, int begin, int end) {
   }  
 
   return original;
+}
+
+int* right_rotation(int* array, int times, int array_size) {
+  int i = 0, j = 0;
+  int* tmp = malloc(sizeof(int) * array_size);
+  tmp = copy_array(array, array_size);
+
+  /* Shift to the right of an array */
+  for (j = 0; j < times; j++) {
+    int posN = tmp[array_size - 1];
+    
+    for (i = array_size - 1; i > 0; i--) {
+      tmp[i] = tmp[i - 1];
+    }
+
+    tmp[0] = posN;
+  }
+  
+  return tmp;
 }
 
 /* Function that returns the SBOX values of a chunk */
