@@ -53,12 +53,18 @@ print pretty_print(present.decipher(), 64)
 """
 
 
-"""
+#"""
+print "** ANU II **"
 anu2 = Anu2.Anu2()
 anu2.set_key([0] * 128)
 anu2.set_plaintext([1] * 64)
-print pretty_print(anu2.cipher(), 64)
-"""
+ciphertext = anu2.cipher()
+print pretty_print(ciphertext, 64)
+recovered_text = anu2.decipher(ciphertext)
+print pretty_print(recovered_text, 64)
+
+#"""
+
 sparx_key = [0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,1, 0,0,1,0, 0,0,1,0, 0,0,1,1, 0,0,1,1,
             0,1,0,0, 0,1,0,0, 0,1,0,1, 0,1,0,1, 0,1,1,0, 0,1,1,0, 0,1,1,1, 0,1,1,1,
             1,0,0,0, 1,0,0,0, 1,0,0,1, 1,0,0,1, 1,0,1,0, 1,0,1,0, 1,0,1,1, 1,0,1,1,

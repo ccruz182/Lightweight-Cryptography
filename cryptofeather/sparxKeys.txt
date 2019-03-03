@@ -1,0 +1,85 @@
+q = 1
+	subk -> 00112233
+	subk -> 44556677
+	subk -> 8899aabb
+	subk -> ccddeeff
+q = 2
+	subk -> ccddef00
+	subk -> 4433ccff
+	subk -> 88883376
+	subk -> 8899aabb
+q = 3
+	subk -> 8899aabd
+	subk -> aa99169a
+	subk -> eecce399
+	subk -> 88883376
+q = 4
+	subk -> 88883379
+	subk -> ddce7738
+	subk -> 88678dd2
+	subk -> eecce399
+q = 5
+	subk -> eecce39d
+	subk -> 448a896e
+	subk -> 225800a6
+	subk -> 88678dd2
+q = 6
+	subk -> 88678dd7
+	subk -> 7d7af30d
+	subk -> c2047c7b
+	subk -> 225800a6
+q = 7
+	subk -> 225800ac
+	subk -> 5ce76bb9
+	subk -> da615ec6
+	subk -> c2047c7b
+q = 8
+	subk -> c2047c82
+	subk -> b0f0b240
+	subk -> 0dd71df9
+	subk -> da615ec6
+q = 9
+	subk -> da615ece
+	subk -> 8606740f
+	subk -> 36f6264f
+	subk -> 0dd71df9
+q = 10
+	subk -> 0dd71e02
+	subk -> 228259bb
+	subk -> a888cdca
+	subk -> 36f6264f
+q = 11
+	subk -> 36f62659
+	subk -> cc1db415
+	subk -> ee9f0dd0
+	subk -> a888cdca
+q = 12
+	subk -> a888cdd5
+	subk -> 12c68ba2
+	subk -> dee33fb7
+	subk -> ee9f0dd0
+q = 13
+	subk -> ee9f0ddc
+	subk -> df26e871
+	subk -> f1ec7413
+	subk -> dee33fb7
+q = 14
+	subk -> dee33fc4
+	subk -> 4db97ac9
+	subk -> 2cdf633a
+	subk -> f1ec7413
+q = 15
+	subk -> f1ec7421
+	subk -> 0781f891
+	subk -> 553a735a
+	subk -> 2cdf633a
+q = 16
+	subk -> 2cdf6349
+	subk -> 4e049e81
+	subk -> 55859712
+	subk -> 553a735a
+q = 17
+	subk -> 553a736a
+	subk -> 21a2ac87
+	subk -> 6fa64b08
+	subk -> 55859712

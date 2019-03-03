@@ -1,5 +1,5 @@
 from keys import key_schedule
-from cipher import _cipher
+from cipher import _cipher, _decipher
 
 class Anu2:
   key = []
@@ -17,3 +17,7 @@ class Anu2:
   def cipher(self):
     sub_keys = key_schedule(self.key)    
     return _cipher(self.plaintext, sub_keys)
+
+  def decipher(self, ciphertext):
+    sub_keys = key_schedule(self.key)    
+    return _decipher(ciphertext, sub_keys)

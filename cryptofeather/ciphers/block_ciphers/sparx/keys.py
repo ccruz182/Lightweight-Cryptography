@@ -6,7 +6,7 @@
 '''
 from constants import WORD_SIZE, KEY_SIZE
 from speckey import arx_box
-from utils.others import get_fragment_int, int_to_bin, sum_mod
+from utils.others import get_fragment_int, int_to_bin, sum_mod, pretty_print
 
 NS = 8
 
@@ -14,13 +14,25 @@ def key_schedule(key):
   k = []
   keys = []
 
+  # Debug con archivos
+  f = open("sparxKeys.txt", "w");
+
   for i in range(0, len(key), WORD_SIZE):
     k.append(key[i: i + WORD_SIZE])
 
   for q in range(1, 2 * NS + 2, 1):    
     keys.append(k)
+    
+    # File debug
+    f.write("q = " + str(q) + "\n")
+    
+    for subk in k:
+      f.write("\tsubk -> " + pretty_print(subk, len(subk)) + "\n")
+    # End of debug
+
     k = k_64(k, q)
 
+  f.close()
   return keys
 
 def k_64(k, r):

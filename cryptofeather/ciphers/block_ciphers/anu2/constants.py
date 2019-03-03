@@ -10,3 +10,4 @@ KEY_LENGTH = 128
 NUMBER_OF_ROUNDS = 25
 
 SBOX = [0xe, 4, 0xb, 1, 7, 9, 0xc, 0xa, 0xd, 2, 0, 0xf, 8, 5, 3, 6]
+SBOX_INV = [SBOX.index(i) for i in range(len(SBOX))]
