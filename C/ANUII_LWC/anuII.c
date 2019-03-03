@@ -5,6 +5,7 @@
 */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /* 
 	Constant's definition 
@@ -15,6 +16,7 @@
 #define ROUNDS 					25
 
 int SBOX[16] = {14, 4, 11, 1, 7, 9, 12, 10, 13, 2, 0, 15, 8, 5, 3, 6};
+int SBOX_INV[16] = {10, 3, 9, 14, 1, 13, 15, 4, 12, 5, 7, 2, 6, 8, 0, 11};
 
 
 /* 
@@ -22,7 +24,7 @@ int SBOX[16] = {14, 4, 11, 1, 7, 9, 12, 10, 13, 2, 0, 15, 8, 5, 3, 6};
 */
 int** get_and_update_round_key(int* key, int round_counter);
 int* sbox_layer(int* state);
-
+int* sbox_layer_inv(int* state);
 
 /* 
 	Auxiliar function's definition
@@ -36,6 +38,7 @@ void 	print_array(int*array, int size);
 int* 	replace_values(int* original, int* replacer, int begin, int end);
 int* 	right_rotation(int* array, int times, int array_size);
 int* 	sbox_operation(int* state, int begin, int end, int num_bits);
+int* sbox_operation_inv(int* state, int begin, int end, int num_bits);
 int* 	xor(int* arr1, int* arr2, int size);
 
 /* Main */
@@ -47,23 +50,27 @@ int main(void) {
 
   /* init vector */
   for (i = 0; i < BLOCK_SIZE; i++) {    
-    if (i < BLOCK_SIZE / 2) {
-    	left[i] = 0;
+    if (i < (BLOCK_SIZE / 2)) {
+    	left[i] = 1;
     } else {
-    	right[BLOCK_SIZE / 2 - i] = 0;
+    	right[i - BLOCK_SIZE / 2] = 1;
     }
   }
-
+  printf("RIGHT: "); print_array(right, ROUND_KEY_SIZE);
   /* Key initialization */
   for (i = 0; i < KEY_SIZE; i++) {
-    key[i] = 0;  
+    key[i] = 1;  
   }
+
+  /* Cipher */
+  int *** all_round_keys = (int ***) malloc(sizeof(int) * 50);
 
   for (i = 0; i < ROUNDS; i++) {
   	// printf("--> %d\n", i);
 
   	/* First, the round keys are generated */  	
   	int** round_keys = get_and_update_round_key(key, i);  	
+  	all_round_keys[i] = round_keys; 	
   	key = copy_array(round_keys[2], KEY_SIZE);  
   	
   	/* SBOX with the left side of the state */
@@ -90,9 +97,32 @@ int main(void) {
 		left = copy_array(tmp_left, ROUND_KEY_SIZE);
 	}
 
-	printf("LEFT: ");
+	printf("Cipher\n -> LEFT: ");
 	print_array(left, ROUND_KEY_SIZE);
-	printf("RIGHT: ");
+	printf(" -> RIGHT: ");
+	print_array(right, ROUND_KEY_SIZE);
+
+	/* Decipher */
+	for (i = ROUNDS - 1; i >= 0; i--) {
+		/* SWAP */
+		int* tmp_left = copy_array(left, ROUND_KEY_SIZE);
+		left = copy_array(right, ROUND_KEY_SIZE);
+		right = copy_array(tmp_left, ROUND_KEY_SIZE);
+
+		/* ROL and XOR Right */
+		tmp_left = left_rotation(left, 10, ROUND_KEY_SIZE);
+		right = xor(right, xor(tmp_left, all_round_keys[i][1], ROUND_KEY_SIZE), ROUND_KEY_SIZE);
+
+		/* ROR and XOR left */
+		int* tmp_right = right_rotation(right, 3, ROUND_KEY_SIZE);
+		left = xor(left, xor(tmp_right, all_round_keys[i][0], ROUND_KEY_SIZE), ROUND_KEY_SIZE);
+
+  	left = sbox_layer_inv(get_chunk(left, 0, 32)); // SBOX[P_MSB]
+	}
+
+	printf("Decipher\n -> LEFT: ");
+	print_array(left, ROUND_KEY_SIZE);
+	printf(" -> RIGHT: ");
 	print_array(right, ROUND_KEY_SIZE);
 }
 
@@ -150,6 +180,19 @@ int* sbox_layer(int* state) {
   for (i = 0; i < (BLOCK_SIZE / 8); i++) {
     begin = 4 * i;
     int* sbox_values = sbox_operation(state, begin, begin + 4, 4);
+    state = replace_values(state, sbox_values, begin, begin + 4);
+  }
+
+  return state;
+}
+
+/* sbox_layer_inv operation */
+int* sbox_layer_inv(int* state) {
+  int i, begin;
+
+  for (i = 0; i < (BLOCK_SIZE / 8); i++) {
+    begin = 4 * i;
+    int* sbox_values = sbox_operation_inv(state, begin, begin + 4, 4);
     state = replace_values(state, sbox_values, begin, begin + 4);
   }
 
@@ -282,6 +325,23 @@ int* sbox_operation(int* state, int begin, int end, int num_bits) {
 
   return sbox_values;
 }
+
+/* Function that returns the SBOX_inv values of a chunk */
+int* sbox_operation_inv(int* state, int begin, int end, int num_bits) {	
+  /* First, get the chunk of state */
+  int* chunk = get_chunk(state, begin, end);    
+
+  /* Then, convert that chunk in an integer */
+  int sbox_index = array_to_int(chunk, num_bits);
+
+  /* Finally, convert into an array of bits (actually, integers representing
+     a binary string. */
+
+  int* sbox_values = int_to_bin_array(SBOX_INV[sbox_index], num_bits);
+
+  return sbox_values;
+}
+
 
 /* Function that makes a X-OR operation between two arrays (arr1, arr2) */
 int* xor(int* arr1, int* arr2, int size) {
