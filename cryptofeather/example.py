@@ -17,13 +17,13 @@ from ciphers.block_ciphers.sparx import Sparx
 
 
 
-"""
-print "** ANU **"
-anu = Anu.Anu()
-anu.set_key([0] * 128)
-anu.set_plaintext([0] * 64)
-print pretty_print(anu.cipher(), 64)
-"""
+#"""
+#print "** ANU **"
+#anu = Anu.Anu()
+#anu.set_key([0] * 128)
+#anu.set_plaintext([0] * 64)
+#print pretty_print(anu.cipher(), 64)
+#"""
 
 """
 print "** GIFT **"
@@ -53,18 +53,20 @@ print pretty_print(present.decipher(), 64)
 """
 
 
-#"""
-print "** ANU II **"
+
+print "** ANU II (Descifrado) **"
 anu2 = Anu2.Anu2()
 anu2.set_key([0] * 128)
-anu2.set_plaintext([1] * 64)
+anu2.set_plaintext([0] * 64)
+#print "Texto plano:\t0x", pretty_print([0] * 64, 64)
+#print "Llave a usar:\t0x", pretty_print([0] * 128, 128)
 ciphertext = anu2.cipher()
-print pretty_print(ciphertext, 64)
+print "Texto cifrado:\t\t0x", pretty_print(ciphertext, 64)
+print "Llave a usar:\t\t0x", pretty_print([0] * 128, 128)
 recovered_text = anu2.decipher(ciphertext)
-print pretty_print(recovered_text, 64)
+print "Texto descifrado:\t0x", pretty_print(recovered_text, 64)
 
-#"""
-
+"""
 sparx_key = [0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,1, 0,0,1,0, 0,0,1,0, 0,0,1,1, 0,0,1,1,
             0,1,0,0, 0,1,0,0, 0,1,0,1, 0,1,0,1, 0,1,1,0, 0,1,1,0, 0,1,1,1, 0,1,1,1,
             1,0,0,0, 1,0,0,0, 1,0,0,1, 1,0,0,1, 1,0,1,0, 1,0,1,0, 1,0,1,1, 1,0,1,1,
@@ -85,3 +87,4 @@ cipher = sparx.cipher()
 print "Ciphertext:\t", pretty_print(cipher, 64)
 decipher = sparx.decipher(cipher)
 print "Recovered:\t", pretty_print(decipher, 64)
+"""

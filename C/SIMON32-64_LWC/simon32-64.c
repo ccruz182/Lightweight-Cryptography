@@ -194,7 +194,6 @@ int* right_shift(int* array, int times) {
     tmp[0] = posN;
   }
   
-
   return tmp;
 }
 

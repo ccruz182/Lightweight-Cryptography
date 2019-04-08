@@ -16,25 +16,26 @@ def _cipher(plaintext, keys):
   pl = plaintext[:(BLOCK_LENGTH / 2)]
   pr = plaintext[(BLOCK_LENGTH / 2):]
 
-  for i in range(NUMBER_OF_ROUNDS):    
+  for i in range(NUMBER_OF_ROUNDS): 
+    #print "i:", i   
     # First, sbox operation and rotation  
-#    print "K1", pretty_print(keys[i][0], len(keys[i][0]))
-#    print "K2", pretty_print(keys[i][1], len(keys[i][1]))
+    #print "K1", pretty_print(keys[i][0], len(keys[i][0]))
+    #print "K2", pretty_print(keys[i][1], len(keys[i][1]))
 
     pl = sbox_operation(SBOX, pl)  
-#    print "sbox", pretty_print(pl, len(pl))
+    #print "\tA", pretty_print(pl, len(pl))
     pr_temp = list(numpy.roll(pr, 3))
-#    print "ROR", pretty_print(pr_temp, len(pr_temp))   
+    #print "\tB", pretty_print(pr_temp, len(pr_temp))   
 
     # XOR Left
     tmp_left = xor(pl, xor(keys[i][0], pr_temp))
-#    print "XL", pretty_print(tmp_left, len(tmp_left))
+    #print "\tC", pretty_print(tmp_left, len(tmp_left))
     pl_temp = list(numpy.roll(tmp_left, -10))
-#    print "ROL", pretty_print(pl_temp, len(pl_temp))
+    #print "\tD", pretty_print(pl_temp, len(pl_temp))
 
     # XOR Rigth
     pl = xor(pr, xor(pl_temp, keys[i][1]))
-#    print pretty_print(pl, len(pl))
+    #print "\tE", pretty_print(pl, len(pl))
 
     pr = tmp_left
 

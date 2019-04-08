@@ -8,13 +8,14 @@
 import numpy
 
 from constants import NUMBER_OF_ROUNDS, SBOX
-from utils.others import get_fragment_int, int_to_bin
+from utils.others import get_fragment_int, int_to_bin, pretty_print
 
 def key_schedule_128(key):
   round_keys = []
 
   for i in range(NUMBER_OF_ROUNDS):
     # First step, add the round_key
+    print "i", pretty_print(key, 128)
     round_keys.append(key[-32:])
 
     # Then, key_update
