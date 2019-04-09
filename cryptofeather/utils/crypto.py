@@ -4,7 +4,7 @@
   Project: cryptofeather
   Python Version: 2.7
 '''
-from utils.others import get_fragment_int, int_to_bin
+from utils.others import get_fragment_int, int_to_bin, pretty_print
 
 # S-box operation nibble by nibble
 def sbox_operation(sbox, _in):
@@ -15,6 +15,7 @@ def sbox_operation(sbox, _in):
   return _in
 
 def permutation_layer(pbox, state):
+  # print "_in", pretty_print(state, 32)
   state_copy = state[:] 
   state_copy.reverse()
 
@@ -26,3 +27,11 @@ def permutation_layer(pbox, state):
     new_state[init - pbox[i]] = state_copy[i]    
   
   return new_state
+
+def generate_pboxinv(pbox):
+  pbox_inv = []
+
+  for i in range(len(pbox)):
+    pbox_inv.append(pbox.index(i))
+
+  return pbox_inv

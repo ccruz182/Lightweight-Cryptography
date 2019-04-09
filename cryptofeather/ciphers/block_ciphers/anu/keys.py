@@ -15,7 +15,7 @@ def key_schedule_128(key):
 
   for i in range(NUMBER_OF_ROUNDS):
     # First step, add the round_key
-    print "i", pretty_print(key, 128)
+    # print "i", pretty_print(key, 128)
     round_keys.append(key[-32:])
 
     # Then, key_update
