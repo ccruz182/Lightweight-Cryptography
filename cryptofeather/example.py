@@ -14,12 +14,12 @@ from utils.others import pretty_print
 
 from ciphers.block_ciphers.sparx import Sparx
 
-#print "** ANU (Descifrado) **"
-#anu = Anu.Anu()
-#anu.set_key([0] * 128)
-#anu.set_plaintext([0] * 64)
-#ciphertext = anu.cipher()
-#recovered_text = anu.decipher(ciphertext)
+print "** ANU (Descifrado) **"
+anu = Anu.Anu()
+anu.set_key([0] * 128)
+anu.set_plaintext([0] * 64)
+ciphertext = anu.cipher()
+recovered_text = anu.decipher(ciphertext)
 
 #print "Texto plano:\t0x", pretty_print([0] * 64, 64)
 #print "Llave a usar:\t0x", pretty_print([0] * 128, 128)
